@@ -27,7 +27,7 @@ public:
    * x_m is the estimates states
    * u is the applied input to the system
    */
-  void Kalmanf(rowvec& x, rowvec& x_m, const rowvec& u);
+  void Kalmanf(colvec& x, colvec& x_m, const colvec& u);
 private:
   
   /// Variables to hold the system parameters
@@ -36,15 +36,15 @@ private:
   mat H_;
   mat Q_;
   mat R_;
-  rowvec v_;
-  rowvec w_;
+  colvec v_;
+  colvec w_;
   
   mat sqrt_Q_;
   mat sqrt_R_;
   
   /// System states and outputs
-  rowvec x_;
-  rowvec z_;
+  colvec x_;
+  colvec z_;
   
  
   /*
@@ -52,8 +52,8 @@ private:
    * subscript m means measurement
    * subscript p means priori
    */
-  rowvec x_m_;
-  rowvec x_p_;
+  colvec x_m_;
+  colvec x_p_;
   
   mat P_p_;
   mat P_m_;
