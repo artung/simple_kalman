@@ -36,8 +36,8 @@ private:
   mat H_;
   mat Q_;
   mat R_;
-  mat v_;
-  mat w_;
+  rowvec v_;
+  rowvec w_;
   
   mat sqrt_Q_;
   mat sqrt_R_;
