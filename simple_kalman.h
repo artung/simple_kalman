@@ -23,8 +23,8 @@ public:
   
   /*
    * Do Kalman iteration step-by-step
-   * x is the true states
-   * x_m is the estimates states
+   * x is the true states, this is a return value
+   * x_m is the estimated states, this is a return value
    * u is the applied input to the system
    */
   void Kalmanf(colvec& x, colvec& x_m, const colvec& u);
@@ -36,11 +36,11 @@ private:
   mat H_;
   mat Q_;
   mat R_;
-  colvec v_;
-  colvec w_;
+  colvec v_;   // process noise covariance
+  colvec w_;   // measurement noise covariance
   
-  mat sqrt_Q_;
-  mat sqrt_R_;
+  mat sqrt_Q_; // process noise stdev
+  mat sqrt_R_; // measurement noise stdev
   
   /// System states and outputs
   colvec x_;

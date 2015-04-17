@@ -18,6 +18,7 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   Q_ = Q;
   R_ = R;
     
+  // Stdev is sqrt of variance
   sqrt_Q_ = sqrt(Q_);
   sqrt_R_ = chol(R_);
         
