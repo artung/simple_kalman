@@ -2,7 +2,7 @@
 
 SimpleKalman::SimpleKalman()
 {
-  nIter_ = 0;
+
 }
 
 SimpleKalman::~SimpleKalman()
@@ -17,28 +17,37 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   H_ = H;
   Q_ = Q;
   R_ = R;
+    
+  sqrt_Q_ = sqrt(Q_);
+  sqrt_R_ = chol(R);
+        
+  assert(A.is_square() && "Whoops, A must be a square matrix");
+  assert(B.n_rows == A.n_rows && "Whoops, B has wrong dimension");
+  assert(Q.is_square() && "Whoops, Q must be a square matrix");
 
-  x_.set_size(A_.n_rows, 1);
+  int n_states = A.n_cols;
+  
+  x_.resize(n_states);
   x_.zeros();
   
-  x_p_.set_size(A_.n_rows, 1);
-  x_m_.set_size(A_.n_rows, 1);
+  x_p_.resize(n_states);
+  x_m_.resize(n_states);
   
-  P_p_.set_size(A_.n_rows, A_.n_cols);
-  P_m_.set_size(A_.n_rows, A_.n_cols);
+  P_p_.resize(n_states, n_states);
+  P_m_.resize(n_states, n_states);
   
   P_m_.eye();
   x_m_.zeros();
   
 }
 
-void SimpleKalman::Kalmanf(mat &x, mat& x_m, const mat& u)
+void SimpleKalman::Kalmanf(rowvec &x, rowvec& x_m, const rowvec& u)
 {
   // True system:
   v_.randn(A_.n_rows, 1);
   w_.randn(H_.n_rows, 1);
-  v_ = Q_ * v_;
-  w_ = R_ * w_;
+  v_ = sqrt_Q_ * v_;
+  w_ = sqrt_R_ * w_;
   x_ = A_ * x_ + B_ * u + v_;
   z_ = H_ * x_ + w_;
   

@@ -18,13 +18,7 @@ int main(int argc, char** argv)
      * Sinusoid voltage is measured as an output of a system
      */
     int nStates = 1;
-    mat A, B, H, Q, R;
-    A.set_size(1, 1);
-    B.set_size(1, 1);
-    H.set_size(1, 1);
-    Q.set_size(1, 1);
-    A.set_size(1, 1);
-    R.set_size(1, 1);
+    mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);
     
     A(0, 0) = 0;
     B(0, 0) = 1;
@@ -35,13 +29,10 @@ int main(int argc, char** argv)
     SimpleKalman kalman;
     kalman.InitSystem(A, B, H, Q, R);
     
-    mat z;
-    mat x, x_m;
-    mat u;
-    z.set_size(1, 1);
-    x.set_size(1, 1);
-    u.set_size(1, 1);
-    
+    rowvec z(1);
+    rowvec x(1), x_m(1);
+    rowvec u(1);
+  
     double t = 0;
 
     do {
