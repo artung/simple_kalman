@@ -21,12 +21,13 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   sqrt_Q_ = sqrt(Q_);
   sqrt_R_ = chol(R_);
         
+  int n_states = A.n_cols;
+  int n_outputs = H.n_rows;
+  
   assert(A.is_square() && "Whoops, A must be a square matrix");
   assert(B.n_rows == A.n_rows && "Whoops, B has wrong dimension");
   assert(Q.is_square() && "Whoops, Q must be a square matrix");
-  assert(R.n_rows == H_.n_rows && "Whoops, R must be a row vector with element numbers equal to number of the outputs");
-  
-  int n_states = A.n_cols;
+  assert(R.n_rows == n_outputs && "Whoops, R must be a row vector with element numbers equal to number of the outputs");
   
   x_.resize(n_states);
   x_.zeros();
@@ -40,9 +41,11 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   P_m_.eye();
   x_m_.zeros();
   
+  v_.resize(n_states);
+  w_.resize(n_outputs);
 }
 
-void SimpleKalman::Kalmanf(rowvec &x, rowvec& x_m, const rowvec& u)
+void SimpleKalman::Kalmanf(colvec &x, colvec& x_m, const colvec& u)
 {
   // True system:
   v_.randn(A_.n_rows);
@@ -58,9 +61,11 @@ void SimpleKalman::Kalmanf(rowvec &x, rowvec& x_m, const rowvec& u)
   
   // Measurement update
   mat K = P_p_ * trans(H_) * inv(H_ * P_p_ * trans(H_) + R_);
-  x_m = x_p_ + K * (z_ - H_ * x_p_);
+  x_m_ = x_p_ + K * (z_ - H_ * x_p_);
   P_m_ = P_p_ - K * H_ * P_p_;
 
+  // Return the results
   x = x_;
+  x_m = x_m_;
 }
 
