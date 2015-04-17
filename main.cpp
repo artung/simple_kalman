@@ -29,9 +29,9 @@ int main(int argc, char** argv)
     SimpleKalman kalman;
     kalman.InitSystem(A, B, H, Q, R);
     
-    rowvec z(1);
-    rowvec x(1), x_m(1);
-    rowvec u(1);
+    colvec z(1);
+    colvec x(1), x_m(1);
+    colvec u(1);
   
     double t = 0;
 
