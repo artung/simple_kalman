@@ -19,7 +19,7 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   R_ = R;
     
   sqrt_Q_ = sqrt(Q_);
-  sqrt_R_ = chol(R);
+  sqrt_R_ = chol(R_);
         
   assert(A.is_square() && "Whoops, A must be a square matrix");
   assert(B.n_rows == A.n_rows && "Whoops, B has wrong dimension");
