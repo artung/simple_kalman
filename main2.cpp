@@ -18,7 +18,7 @@ int main(int argc, char** argv)
      * velocity as the states
      */
     int nStates = 1;
-    mat A(2,2), B(2,1), H(1,0), Q(2,2), R(1,1);
+    mat A(2,2), B(2,1), H(1,1), Q(2,2), R(1,1);
     
     A << 1 << 1 << endr
       << 0 << 1 << endr;
