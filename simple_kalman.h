@@ -18,46 +18,43 @@ public:
    *                  z = Hx + w
    * where: process noise v ~ N(0,Q)
    *        measurement noise w ~ N(0,R)
+   * @param A System matrix
+   * @param B Input matrix
+   * @param H Output matrix
+   * @param Q Process noise covariance
+   * @param R Measurement noise covariance
    */
   void InitSystem (const mat& A, const mat& B, const mat& H, const mat& Q, const mat& R);
   
   /*
    * Do Kalman iteration step-by-step
-   * x is the true states, this is a return value
-   * x_m is the estimated states, this is a return value
-   * u is the applied input to the system
+   * @return x the true states, this is a returned value
+   * @return x_m the estimated states, this is a returned value
+   * @param u the applied input to the system
    */
   void Kalmanf(colvec& x, colvec& x_m, const colvec& u);
+  
 private:
   
-  /// Variables to hold the system parameters
-  mat A_;
-  mat B_;
-  mat H_;
-  mat Q_;
-  mat R_;
-  colvec v_;   // process noise covariance
-  colvec w_;   // measurement noise covariance
+  mat A_;      ///< System matrix
+  mat B_;      ///< Input matrix
+  mat H_;      ///< Output matrix
+  mat Q_;      ///< Process noise covariance
+  mat R_;      ///< Measurement noise covariance
+  colvec v_;   ///< Gaussian process noise
+  colvec w_;   ///< Gaussian measurement noise
   
-  mat sqrt_Q_; // process noise stdev
-  mat sqrt_R_; // measurement noise stdev
+  mat sqrt_Q_; ///< Process noise stdev
+  mat sqrt_R_; ///< Measurement noise stdev
   
-  /// System states and outputs
-  colvec x_;
-  colvec z_;
-  
+  colvec x_;   ///< State vector
+  colvec z_;   ///< Output matrix
  
-  /*
-   * Variables for the Kalman
-   * subscript m means measurement
-   * subscript p means priori
-   */
-  colvec x_m_;
-  colvec x_p_;
+  colvec x_m_; ///< State vector after measurement update
+  colvec x_p_; ///< State vector after a priori update
   
-  mat P_p_;
-  mat P_m_;
-  
+  mat P_p_;    ///< State covariance after a priori update
+  mat P_m_;    ///< State covariance after measurement update
 };
 
 #endif

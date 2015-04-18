@@ -39,11 +39,12 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   P_p_.resize(n_states, n_states);
   P_m_.resize(n_states, n_states);
   
-  P_m_.eye();
-  x_m_.zeros();
-  
   v_.resize(n_states);
   w_.resize(n_outputs);
+  
+  // Inital values:
+  P_m_.eye();
+  x_m_.zeros();
 }
 
 void SimpleKalman::Kalmanf(colvec &x, colvec& x_m, const colvec& u)
@@ -60,7 +61,7 @@ void SimpleKalman::Kalmanf(colvec &x, colvec& x_m, const colvec& u)
   x_p_ = A_ * x_m_ + B_ * u;
   P_p_ = A_ * P_m_ * trans(A_) + Q_;
   
-  // Measurement update
+  // Measurement update:
   mat K = P_p_ * trans(H_) * inv(H_ * P_p_ * trans(H_) + R_);
   x_m_ = x_p_ + K * (z_ - H_ * x_p_);
   P_m_ = P_p_ - K * H_ * P_p_;
