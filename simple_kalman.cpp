@@ -25,10 +25,10 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   int n_states = A.n_cols;
   int n_outputs = H.n_rows;
   
-  assert(A.is_square() && "Whoops, A must be a square matrix");
+  assert(A.is_square() && "Whoops, A must be a square matrix (n_outputs x n_outputs)");
   assert(B.n_rows == A.n_rows && "Whoops, B has wrong dimension");
   assert(Q.is_square() && "Whoops, Q must be a square matrix");
-  assert(R.n_rows == n_outputs && "Whoops, R must be a row vector with element numbers equal to number of the outputs");
+  assert(R.is_square() && "Whoops, R must be a square matrix (n_outputs x n_outputs)");
   
   x_.resize(n_states);
   x_.zeros();
