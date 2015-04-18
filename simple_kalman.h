@@ -13,10 +13,10 @@ public:
   SimpleKalman();
   ~SimpleKalman();
   
-  /*
-   * Define a system: x = Ax + Bu + v
-   *                  z = Hx + w
-   * where: process noise v ~ N(0,Q)
+  /*!
+   * Define a system: x = Ax + Bu + v \n
+   *                  z = Hx + w \n
+   * where: process noise v ~ N(0,Q) \n  
    *        measurement noise w ~ N(0,R)
    * @param A System matrix
    * @param B Input matrix
@@ -26,7 +26,7 @@ public:
    */
   void InitSystem (const mat& A, const mat& B, const mat& H, const mat& Q, const mat& R);
   
-  /*
+  /*!
    * Do Kalman iteration step-by-step
    * @return x the true states, this is a returned value
    * @return x_m the estimated states, this is a returned value
