@@ -27,6 +27,20 @@ public:
   void InitSystem (const mat& A, const mat& B, const mat& H, const mat& Q, const mat& R);
   
   /*!
+   * Initialize the system states, must be called after InitSystem.
+   * If not, called, system states are initialized to zero.
+   * @param x0 Inital value for the system state
+   */
+  void InitSystemState(const colvec& x0);
+  
+  /*!
+   * Initialize the state covariance, must be called after InitSystem.
+   * If not called, covariance state is Initialized to an identity matrix.
+   * @param P0 Inital value for the stat covariance
+   */
+  void InitStateCovariance(const mat& P0);
+  
+  /*!
    * Do Kalman iteration step-by-step
    * @return x the true states, this is a returned value
    * @return x_m the estimated states, this is a returned value

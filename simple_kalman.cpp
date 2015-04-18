@@ -30,8 +30,9 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   assert(Q.is_square() && "Whoops, Q must be a square matrix");
   assert(R.is_square() && "Whoops, R must be a square matrix (n_outputs x n_outputs)");
   
+  // Apply intial states
   x_.resize(n_states);
-  x_.zeros();
+  x_ =  x_.zeros();
   
   x_p_.resize(n_states);
   x_m_.resize(n_states);
@@ -43,10 +44,22 @@ void SimpleKalman::InitSystem(const mat& A, const mat& B, const mat& H, const ma
   w_.resize(n_outputs);
   
   // Inital values:
-  P_m_.eye();
-  x_m_.zeros();
+  P_m_ = P_m_.eye();
+  x_m_ = x_m_.zeros();
 }
 
+void SimpleKalman::InitSystemState(const colvec& x0)
+{
+  arma_assert_same_size(x_.n_rows, x_.n_cols, x0.n_rows, x0.n_cols, "Whoops, error initializing system states");
+  x_ = x0;
+}
+
+void SimpleKalman::InitStateCovariance(const mat& P0)
+{
+  arma_assert_same_size(P_m_.n_rows, P_m_.n_cols, P0.n_rows, P0.n_cols, "Whoops, error initializing state covariance");
+  P_m_ = P0;
+}
+  
 void SimpleKalman::Kalmanf(colvec &x, colvec& x_m, const colvec& u)
 {
   // True system:
