@@ -17,7 +17,6 @@ int main(int argc, char** argv)
      * Define the system 
      * Sinusoid voltage is measured as an output of a system
      */
-    int nStates = 1;
     mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);
     
     A(0, 0) = 0;
