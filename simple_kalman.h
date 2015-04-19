@@ -1,3 +1,10 @@
+/**
+ * @file simple_kalman.h
+ * @author Auralius Manurung
+ * @date 18 Apr 2015
+ * @brief Header file for the Kalman filter implementation.
+ */
+
 #ifndef SIMPLE_KALMAN_H
 #define SIMPLE_KALMAN_H
 

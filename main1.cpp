@@ -8,7 +8,7 @@ int main(int argc, char** argv)
   {
     /* 
      * Log the result into a tab delimitted file, later we can open 
-     * it with Matlab
+     * it with Matlab. Use: plot_data.m to plot the results.
      */
     ofstream log_file;
     log_file.open("log_file.txt");
