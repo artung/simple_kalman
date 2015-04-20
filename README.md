@@ -12,4 +12,6 @@ Use cmake to build the codes by first modifying the main file name in CMakeList.
 
 Dependencies:
 
-Please install Armadillo (http://arma.sourceforge.net/docs.html), take it from your distribution repository. Armadillo is very easy to use. Have a look on the following url for quick tutorial on using Armadillo.
+Please install Armadillo (http://arma.sourceforge.net/docs.html), take it from your distribution repository. Armadillo is very easy to use. Have a look on the following url for quick tutorial on using Armadillo:
+
+http://arma.sourceforge.net/docs.html
