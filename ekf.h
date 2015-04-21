@@ -26,13 +26,13 @@ using namespace std;
 using namespace arma;
 
 class EKF {
-  
+public:  
   /*!
    * \brief Tell me how many states and outputs you have!
    * @param n_states Number of the elements on the input vector x
    * @param n_output Number of the elements on the otput vector z
    */
-  EKF(int n_states, int n_outputs);
+  EKF(int n_states, int n_outputs, const mat& Q, const mat& R);
   
   /*!
    * \brief Destructur, nothing happens here.
@@ -42,13 +42,18 @@ class EKF {
   /*!
    * \brief Define model of your system.
    */
-  virtual void ModelF();
+  virtual colvec f(const colvec &x, const colvec &u, const int k);
   
   /*!
    * \brief Define the output model of your system.
    */
-  virtual void ModelH();
+  virtual colvec h(const colvec &x, const colvec &u, const int k);
   
+   
+  /*!
+   * \brief Initialize the system states.
+   */
+  void InitSystemState(const colvec& x0);
  
   /*!
    * \brief Do the extended Kalman iteration step-by-step.
@@ -56,16 +61,24 @@ class EKF {
    * @return x_m the estimated states, this is a returned value
    * @param u the applied input to the system
    */
-  void Kalmanf(colvec& x, colvec& x_m, const colvec& u);
+  void EKalmanf(colvec& x, colvec& x_m, const colvec& u, const int k);
   
 private:
+  /*!
+   * \brief Compute the Jacobian of f numerically using  a  small  
+   * finite-difference perturbation magnitude. 
+   */
+  void CalcF(const colvec &x, const colvec &u, const int k);
   
-  void CalcJaccF();
-  void CalcJaccH();
+  /*!
+   * \brief Compute the Jacobian of h numerically using  a  small  
+   * finite-difference perturbation magnitude. 
+   */
+  void CalcH(const colvec &x, const colvec &u, const int k);
   
   int nStates_;
   int nOutputs_;
-  
+
   mat F_;
   mat H_;
   mat Q_;      ///< Process noise covariance
@@ -76,14 +89,23 @@ private:
   mat sqrt_Q_; ///< Process noise stdev
   mat sqrt_R_; ///< Measurement noise stdev
   
-  colvec x_;   ///< State vector
-  colvec z_;   ///< Output matrix
+
  
   colvec x_m_; ///< State vector after measurement update
   colvec x_p_; ///< State vector after a priori update
   
   mat P_p_;    ///< State covariance after a priori update
   mat P_m_;    ///< State covariance after measurement update
+  
+  double epsilon_;
+  
+protected:
+    
+  colvec f_;
+  colvec h_;
+  
+  colvec x_;   ///< State vector
+  colvec z_;   ///< Output matrix
 };
 
 
