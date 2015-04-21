@@ -13,6 +13,9 @@
  * \f$h\f$ is the measurement model of the system\n
  * \f$v ~ N(0,Q)\f$ is the process noise\n  
  * \f$w ~ N(0,R)\f$ is the measurement noise\n
+ * \f$x\f$ is the state vector\n
+ * \f$z\f$ is the output vector\n
+ * \f$u\f$ is the input vector\n
  */
 
 #ifndef EKF_H
@@ -31,6 +34,8 @@ public:
    * \brief Tell me how many states and outputs you have!
    * @param n_states Number of the elements on the input vector x
    * @param n_output Number of the elements on the otput vector z
+   * @param Q Process noise covariance
+   * @param R Measurement noise covariance
    */
   EKF(int n_states, int n_outputs, const mat& Q, const mat& R);
   
@@ -41,17 +46,26 @@ public:
   
   /*!
    * \brief Define model of your system.
+   * @param x System states
+   * @param u System inputs
+   * @param k k-th iteration
    */
   virtual colvec f(const colvec &x, const colvec &u, const int k);
   
   /*!
    * \brief Define the output model of your system.
+   * @param x System states
+   * @param u Input vector
+   * @param k k-th iteration
    */
   virtual colvec h(const colvec &x, const colvec &u, const int k);
   
    
   /*!
    * \brief Initialize the system states.
+   * Must be called after InitSystem.
+   * If not called, covariance state is Initialized to an identity matrix.
+   * @param x0 Inital value for the system state
    */
   void InitSystemState(const colvec& x0);
  
@@ -67,45 +81,50 @@ private:
   /*!
    * \brief Compute the Jacobian of f numerically using  a  small  
    * finite-difference perturbation magnitude. 
+   * @param x System states
+   * @param u Input vector
+   * @param k k-th iteration
    */
   void CalcF(const colvec &x, const colvec &u, const int k);
   
   /*!
    * \brief Compute the Jacobian of h numerically using  a  small  
-   * finite-difference perturbation magnitude. 
+   * finite-difference perturbation magnitude.
+   * @param x System states
+   * @param u Input vector
+   * @param k k-th iteration 
    */
   void CalcH(const colvec &x, const colvec &u, const int k);
   
-  int nStates_;
-  int nOutputs_;
+ ;
 
-  mat F_;
-  mat H_;
-  mat Q_;      ///< Process noise covariance
-  mat R_;      ///< Measurement noise covariance
-  colvec v_;   ///< Gaussian process noise
-  colvec w_;   ///< Gaussian measurement noise
+  mat F_;          ///< Jacobian of F	
+  mat H_;          ///< Jacobian of H
+  mat Q_;          ///< Process noise covariance
+  mat R_;          ///< Measurement noise covariance
+  colvec v_;       ///< Gaussian process noise
+  colvec w_;       ///< Gaussian measurement noise
   
-  mat sqrt_Q_; ///< Process noise stdev
-  mat sqrt_R_; ///< Measurement noise stdev
+  mat sqrt_Q_;     ///< Process noise stdev
+  mat sqrt_R_;     ///< Measurement noise stdev
   
 
  
-  colvec x_m_; ///< State vector after measurement update
-  colvec x_p_; ///< State vector after a priori update
+  colvec x_m_;     ///< State vector after measurement update
+  colvec x_p_;     ///< State vector after a priori update
   
-  mat P_p_;    ///< State covariance after a priori update
-  mat P_m_;    ///< State covariance after measurement update
+  mat P_p_;        ///< State covariance after a priori update
+  mat P_m_;        ///< State covariance after measurement update
   
-  double epsilon_;
+  double epsilon_; ///< Very small number
   
 protected:
-    
-  colvec f_;
-  colvec h_;
   
-  colvec x_;   ///< State vector
-  colvec z_;   ///< Output matrix
+  int nStates_;   ///< Number of the states
+  int nOutputs_;  ///< Number of outputs
+  
+  colvec x_;      ///< State vector
+  colvec z_;      ///< Output matrix
 };
 
 

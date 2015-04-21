@@ -3,6 +3,20 @@
  * @author Auralius Manurung
  * @date 18 Apr 2015
  * @brief Header file for the Kalman filter implementation.
+ * 
+ * @section DESCRIPTION
+ * Define a system:
+ * \f[x = Ax + Bu + v\f]
+ * \f[z = Hx + w\f]
+ * where:\n
+ * \f$v ~ N(0,Q)\f$ is the process noise\n  
+ * \f$w ~ N(0,R)\f$ is the measurement noise\n 
+ * \f$A\f$ is the system matrix\n
+ * \f$B\f$ is the input matrix\n
+ * \f$H\f$ is the output matrix\n
+ * \f$x\f$ is the state vector\n
+ * \f$z\f$ is the output vector\n
+ * \f$u\f$ is the input vector\n
  */
 
 #ifndef SIMPLE_KALMAN_H
@@ -21,10 +35,7 @@ public:
   ~SimpleKalman();
   
   /*!
-   * Define a system: x = Ax + Bu + v \n
-   *                  z = Hx + w \n
-   * where: process noise v ~ N(0,Q) \n  
-   *        measurement noise w ~ N(0,R)
+   * @brief Define the system.
    * @param A System matrix
    * @param B Input matrix
    * @param H Output matrix
@@ -34,21 +45,23 @@ public:
   void InitSystem (const mat& A, const mat& B, const mat& H, const mat& Q, const mat& R);
   
   /*!
-   * Initialize the system states, must be called after InitSystem.
+   * @brief Initialize the system states.
+   * Must be called after InitSystem.
    * If not, called, system states are initialized to zero.
    * @param x0 Inital value for the system state
    */
   void InitSystemState(const colvec& x0);
   
   /*!
-   * Initialize the state covariance, must be called after InitSystem.
+   * @brief Initialize the state covariance.
+   * Must be called after InitSystem.
    * If not called, covariance state is Initialized to an identity matrix.
    * @param P0 Inital value for the stat covariance
    */
   void InitStateCovariance(const mat& P0);
   
   /*!
-   * Do Kalman iteration step-by-step
+   * @brief Do Kalman iteration step-by-step
    * @return x the true states, this is a returned value
    * @return x_m the estimated states, this is a returned value
    * @param u the applied input to the system

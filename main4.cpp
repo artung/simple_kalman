@@ -1,3 +1,13 @@
+/**
+ * @file main4.cpp
+ * @author Auralius Manurung
+ * @date 18 Apr 2015
+ * @brief Example for the Extended Kalman FIlter Implementation.
+ * 
+ * The following example is taken from:\n
+ * http://ch.mathworks.com/matlabcentral/fileexchange/38302-kalman-filter-package/content//Kalman%20Filter%20Package/Examples/ExtendedKalmanFilterDemo.m
+ */
+
 #include <iostream>
 #include <fstream>
 
@@ -12,15 +22,17 @@ public:
   }
   
   virtual colvec f(const colvec& x, const colvec& u, const int k) {
-    f_(0) = sin(x(1) * k);
-    f_(1) = sin(x(1));
-    return f_;
+    colvec xk(nOutputs_);
+    xk(0) = sin(x(1) * k);
+    xk(1) = sin(x(1));
+    return xk;
   }
   
   virtual colvec h(const colvec& x, const colvec& u, const int k) {
-    h_(0) = x(0);
-    h_(1) = x(1);
-    return h_;
+    colvec zk(nOutputs_);
+    zk(0) = x(0);
+    zk(1) = x(1);
+    return zk;
   }
 };
 

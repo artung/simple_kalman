@@ -22,9 +22,6 @@ EKF::EKF(int n_states, int n_outputs, const mat& Q, const mat& R)
   F_.resize(n_states, n_states);
   H_.resize(n_outputs, n_states);
   
-  f_.resize(n_states);
-  h_.resize(n_outputs);
-  
   x_p_.resize(n_states);
   x_m_.resize(n_states);
   
@@ -51,18 +48,16 @@ EKF::~EKF()
 
 colvec EKF::f(const colvec &x, const colvec &u, const int k)
 {
-  for (int i = 0; i < nStates_; i++)
-    f_(i) = 0.0;
-  
-  return f_;
+  colvec xk(nOutputs_);
+  xk = xk.zeros();
+  return xk;
 }
 
 colvec EKF::h(const colvec &x, const colvec &u, const int k)
 {
- for (int i = 0; i < nOutputs_; i++)
-    h_(i) = 0.0;
- 
- return h_;
+  colvec zk(nOutputs_);
+  zk = zk.zeros();
+  return zk;
 }
 
 void EKF::CalcF(const colvec &x, const colvec &u, const int k)

@@ -8,6 +8,8 @@ http://www.idsc.ethz.ch/education/lectures/recursive-estimation.html
 
 The Kalman filter implementation is located in: simple_kalman.h and simple_kalman.cpp.
 
+The extended Kalman filter implementation is located in ekf.h and ekf.cpp.
+
 Use cmake to build the codes by first modifying the main file name in CMakeList.txt.
 
 Dependencies:

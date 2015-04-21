@@ -1,3 +1,10 @@
+/**
+ * @file main2.cpp
+ * @author Auralius Manurung
+ * @date 18 Apr 2015
+ * @brief Example for the Kalman Filter Implementation.
+ */
+
 #include <iostream>
 #include <fstream>
 
