@@ -15,12 +15,7 @@
 
 class MyEKF: public EKF
 {
-public:
-  MyEKF(int n_states, int n_outputs, const mat& Q, const mat& R)
-    :EKF::EKF(n_states, n_outputs, Q, R)
-  {
-  }
-  
+public:  
   virtual colvec f(const colvec& x, const colvec& u, const int k) {
     colvec xk(nOutputs_);
     xk(0) = sin(x(1) * k);
@@ -64,7 +59,8 @@ int main(int argc, char** argv)
   colvec x, x_m;
   colvec u;
   
-  MyEKF myekf(n_states, n_outputs, Q, R);
+  MyEKF myekf;
+  myekf.InitSystem(n_states, n_outputs, Q, R);
   myekf.InitSystemState(x0);
   
   for (int k = 0; k < 1000; k ++) {

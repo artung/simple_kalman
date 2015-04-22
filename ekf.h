@@ -31,19 +31,23 @@ using namespace arma;
 class EKF {
 public:  
   /*!
-   * \brief Tell me how many states and outputs you have!
-   * @param n_states Number of the elements on the input vector x
-   * @param n_output Number of the elements on the otput vector z
-   * @param Q Process noise covariance
-   * @param R Measurement noise covariance
+   * \brief Constructor, nothing happens here.
    */
-  EKF(int n_states, int n_outputs, const mat& Q, const mat& R);
+  EKF();
   
   /*!
    * \brief Destructur, nothing happens here.
    */
   ~EKF();
   
+  /*!
+   * \brief Tell me how many states and outputs you have!
+   * @param n_states Number of the elements on the input vector x
+   * @param n_output Number of the elements on the otput vector z
+   * @param Q Process noise covariance
+   * @param R Measurement noise covariance
+   */
+  void InitSystem(int n_states, int n_outputs, const mat& Q, const mat& R);
   /*!
    * \brief Define model of your system.
    * @param x System states

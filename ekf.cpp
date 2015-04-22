@@ -1,6 +1,16 @@
 #include "ekf.h"
 
-EKF::EKF(int n_states, int n_outputs, const mat& Q, const mat& R)
+EKF::EKF()
+{
+
+}
+
+EKF::~EKF()
+{
+
+}
+
+void EKF::InitSystem(int n_states, int n_outputs, const mat& Q, const mat& R)
 {
   assert(Q.is_square() && "Whoops, Q must be a square matrix");
   assert(R.is_square() && "Whoops, R must be a square matrix (n_outputs x n_outputs)");
@@ -38,12 +48,6 @@ EKF::EKF(int n_states, int n_outputs, const mat& Q, const mat& R)
   // Inital values for the Kalman iterations
   P_m_ = P_m_.eye();
   x_m_ = x_m_.zeros();
-}
-
-
-EKF::~EKF()
-{
-
 }
 
 colvec EKF::f(const colvec &x, const colvec &u, const int k)
