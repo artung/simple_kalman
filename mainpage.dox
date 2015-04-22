@@ -1,0 +1,6 @@
+/*!
+\mainpage simple_kalman
+
+Implementation of Kalman Filter and extended Kalman filter in C++.\n
+
+ */
