@@ -11,6 +11,10 @@
 #include "simple_kalman.h"
 
 
+/*!
+ * Example case is taken from:\n
+ * http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html
+ */
 int main(int argc, char** argv)
   {
     /* 
@@ -39,14 +43,11 @@ int main(int argc, char** argv)
     colvec x(1), x_m(1);
     colvec u(1);
   
-    double t = 0;
-
-    do {
-      u(0,0) = 12 * sin(2 * M_PI * 0.1 * t);
+    for (int k = 0; k < 100; k++) {
+      u(0,0) = 12;
       kalman.Kalmanf(x, x_m, u);
-      log_file << t << '\t' << x.at(0,0) << '\t' << x_m.at(0,0) << '\t' << u.at(0,0) << '\n';
-      t = t + 0.1;
-    } while (t < 20);
+      log_file << k << '\t' << x.at(0,0) << '\t' << x_m.at(0,0) << '\t' << u.at(0,0) << '\n';      
+    }
     
     log_file.close();
     
