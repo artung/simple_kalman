@@ -6,11 +6,11 @@
  * 
  * @section DESCRIPTION
  * Define a system:
- * \f[x = Ax + Bu + v\f]
- * \f[z = Hx + w\f]
+ * \f[x_k = Ax_{k-1} + Bu_{k-1} + v_{k-1}\f]
+ * \f[z_k = Hx_k + w_k\f]
  * where:\n
- * \f$v ~ N(0,Q)\f$ is the process noise\n  
- * \f$w ~ N(0,R)\f$ is the measurement noise\n 
+ * \f$v\f$ is the process noise (Gaussian with covariance Q)\n  
+ * \f$w\f$ is the measurement noise (Gaussian with covariance R)\n 
  * \f$A\f$ is the system matrix\n
  * \f$B\f$ is the input matrix\n
  * \f$H\f$ is the output matrix\n
@@ -29,6 +29,9 @@
 using namespace std;
 using namespace arma;
 
+/*!
+ * @brief Implemetation of the Kalman filter. 
+ */
 class SimpleKalman {
 public:
   SimpleKalman();

@@ -13,13 +13,17 @@
 
 #include "ekf.h"
 
+/*!
+ * @brief Class EKF needs to be derived, two virtual functions are provided in 
+ * which system model and output model are described.
+ */
 class MyEKF: public EKF
 {
 public:  
   virtual colvec f(const colvec& x, const colvec& u, const int k) {
     colvec xk(nOutputs_);
     xk(0) = sin(x(1) * k);
-    xk(1) = sin(x(1));
+    xk(1) = x(1);
     return xk;
   }
   

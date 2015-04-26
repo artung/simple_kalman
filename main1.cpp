@@ -13,20 +13,20 @@
 
 /*!
  * Example case is taken from:\n
- * http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html
+ * http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html\n
+ * Constant voltage of 12 V is measured as the output of a system.
  */
 int main(int argc, char** argv)
   {
     /* 
      * Log the result into a tab delimitted file, later we can open 
-     * it with Matlab. Use: plot_data.m to plot the results.
+     * it with Matlab. Use: plot_data1.m to plot the results.
      */
     ofstream log_file;
     log_file.open("log_file.txt");
    
     /*
-     * Define the system 
-     * Sinusoid voltage is measured as an output of a system
+     * Define the system
      */
     mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);
     
@@ -39,7 +39,6 @@ int main(int argc, char** argv)
     SimpleKalman kalman;
     kalman.InitSystem(A, B, H, Q, R);
     
-    colvec z(1);
     colvec x(1), x_m(1);
     colvec u(1);
   
