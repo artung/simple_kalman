@@ -1,19 +1,22 @@
 # simple_kalman
 
-Kalman filter implementation in C++ 
+## Kalman filter implementation in C++ 
 
-Based on Lecture #7 of the following course: 
+This work is motivated by Lecture #7 of the [this]: http://www.idsc.ethz.ch/education/lectures/recursive-estimation.html course.
 
-http://www.idsc.ethz.ch/education/lectures/recursive-estimation.html
+The Kalman filter implementation is located in: simple_kalman.h and simple_kalman.cpp while the extended Kalman filter implementation is located in ekf.h and ekf.cpp.
 
-The Kalman filter implementation is located in: simple_kalman.h and simple_kalman.cpp.
+Please use cmake to build the codes by first modifying the main file name in CMakeList.txt.
 
-The extended Kalman filter implementation is located in ekf.h and ekf.cpp.
+The steps to compile are:
 
-Use cmake to build the codes by first modifying the main file name in CMakeList.txt.
+```
+cd build
+cmake ..
+make
+```
 
-Dependencies:
+## Dependencies
 
-Please install Armadillo (http://arma.sourceforge.net), take it from your distribution repository. Armadillo is very easy to use. Have a look on the following url for quick tutorial on using Armadillo:
+Please install Armadillo (http://arma.sourceforge.net), take it from your distribution repository. Armadillo is very easy to use. Have a look on this [link]: http://arma.sourceforge.net/docs.html for quick tutorial on using Armadillo.
 
-http://arma.sourceforge.net/docs.html
