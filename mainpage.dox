@@ -15,7 +15,11 @@ where:\n
 \f$H\f$ is the output matrix\n
 \f$x\f$ is the state vector\n
 \f$z\f$ is the output vector\n
-\f$u\f$ is the input vector\n
+\f$u\f$ is the input vector\n\n
+The noise covariance matrices must follow these conditions:\n
+\f[Q = Q^T\f]
+\f[R = R^T\f]
+
 
 \subsection example Example
 
@@ -71,10 +75,13 @@ where:\n
 \f$w\f$ is the measurement noise (Gaussian with covariance R)\n 
 \f$x\f$ is the state vector\n
 \f$z\f$ is the output vector\n
-\f$u\f$ is the input vector\n
+\f$u\f$ is the input vector\n\n
+The noise covariance matrices must follow these conditions:\n
+\f[Q = Q^T\f]
+\f[R = R^T\f]
 
 \subsection example Example
-The example for the EKF is adapted from this  <a href="http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html">MATLAB Central page.</a> The nonlinear system is described as:
+As provided in main4.cpp, the example for the EKF is adapted from this  <a href="http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html">MATLAB Central page.</a> The nonlinear system is described as:
 
 \f[ f = \begin{bmatrix} sin(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix} \f]
 \f[ h = \begin{bmatrix} x_1(k) \\ x_2(k) \end{bmatrix} \f]
