@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>My Project: simple_kalman</title>
+<title>simple_kalman: simple_kalman</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">simple_kalman
    </div>
+   <div id="projectbrief">Implementation of Kalman Filter and extended Kalman filter in C++</div>
   </td>
  </tr>
  </tbody>
@@ -122,15 +123,15 @@ Example</h2>
 <div class="line">H(0, 0) = 1;</div>
 <div class="line">R(0, 0) = 2;</div>
 </div><!-- fragment --><p>The first line of the code above is used to create matrices with predefined dimensions. For this purpose, Armadillo library is used. In the following row until the last row, we assign the value of each matrix accordingly.</p>
-<div class="fragment"><div class="line"><a class="code" href="classSimpleKalman.html">SimpleKalman</a> kalman;</div>
-<div class="line">kalman.<a class="code" href="classSimpleKalman.html#a64801e2d906e09bfefa29de307d9132b">InitSystem</a>(A, B, H, Q, R);</div>
-</div><!-- fragment --><p>Next, we create an instance of class <a class="el" href="classSimpleKalman.html" title="Implemetation of the Kalman filter. ">SimpleKalman</a> and initialize it with the previous matrices of <img class="formulaInl" alt="$A$" src="form_11.png"/>, <img class="formulaInl" alt="$B$" src="form_12.png"/>, <img class="formulaInl" alt="$Q$" src="form_22.png"/>, <img class="formulaInl" alt="$H$" src="form_13.png"/>, and <img class="formulaInl" alt="$R$" src="form_23.png"/>.</p>
+<div class="fragment"><div class="line"><a class="code" href="class_simple_kalman.html">SimpleKalman</a> kalman;</div>
+<div class="line">kalman.<a class="code" href="class_simple_kalman.html#a64801e2d906e09bfefa29de307d9132b">InitSystem</a>(A, B, H, Q, R);</div>
+</div><!-- fragment --><p>Next, we create an instance of class <a class="el" href="class_simple_kalman.html" title="Implemetation of the Kalman filter. ">SimpleKalman</a> and initialize it with the previous matrices of <img class="formulaInl" alt="$A$" src="form_11.png"/>, <img class="formulaInl" alt="$B$" src="form_12.png"/>, <img class="formulaInl" alt="$Q$" src="form_22.png"/>, <img class="formulaInl" alt="$H$" src="form_13.png"/>, and <img class="formulaInl" alt="$R$" src="form_23.png"/>.</p>
 <div class="fragment"><div class="line">colvec x(1), x_m(1);</div>
 <div class="line">colvec u(1);</div>
 <div class="line">  </div>
 <div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; 100; k++) {</div>
 <div class="line">  u(0,0) = 12;</div>
-<div class="line">  kalman.<a class="code" href="classSimpleKalman.html#ac232ddbe7c6529b1fcf6d9e620b63c86">Kalmanf</a>(x, x_m, u);</div>
+<div class="line">  kalman.<a class="code" href="class_simple_kalman.html#ac232ddbe7c6529b1fcf6d9e620b63c86">Kalmanf</a>(x, x_m, u);</div>
 <div class="line">  ...</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Before executing the Kalman iteration, we need to prepare 2 variables, which are: <img class="formulaInl" alt="$x$" src="form_6.png"/> and <img class="formulaInl" alt="$x_m$" src="form_24.png"/>. <img class="formulaInl" alt="$x$" src="form_6.png"/> will be used to store the true states and <img class="formulaInl" alt="$x_m$" src="form_24.png"/> will be used to store the estimated states by the Kalman.</p>
@@ -162,26 +163,26 @@ The noise covariance matrices must follow these conditions:<br />
 </p>
 <h2><a class="anchor" id="example"></a>
 Example</h2>
-<p>As provided in <a class="el" href="main4_8cpp.html" title="Example for the Extended Kalman FIlter Implementation. ">main4.cpp</a>, the example for the <a class="el" href="classEKF.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> is adapted from this <a href="http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html">MATLAB Central page.</a> The nonlinear system is described as:</p>
+<p>As provided in <a class="el" href="main4_8cpp.html" title="Example for the Extended Kalman FIlter Implementation. ">main4.cpp</a>, the example for the <a class="el" href="class_e_k_f.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> is adapted from this <a href="http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html">MATLAB Central page.</a> The nonlinear system is described as:</p>
 <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ f = \begin{bmatrix} sin(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix} \]" src="form_25.png"/>
 </p>
  <p class="formulaDsp">
 <img class="formulaDsp" alt="\[ h = \begin{bmatrix} x_1(k) \\ x_2(k) \end{bmatrix} \]" src="form_26.png"/>
 </p>
-<p>Since Extended Kalamn is meant to work with nonlinear system, we can not extract matrix <img class="formulaInl" alt="$A$" src="form_11.png"/> and matrix <img class="formulaInl" alt="$H$" src="form_13.png"/> as we can do from a linear system. In Extended Kalman, matrix <img class="formulaInl" alt="$f$" src="form_2.png"/> and matrix <img class="formulaInl" alt="$h$" src="form_3.png"/> are matrix of functions instead of matrix of constants. To accomodate this, Class <a class="el" href="classEKF.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> needs to be first derived so that we can define our own functions for those two matrices.</p>
-<div class="fragment"><div class="line"><span class="keyword">class </span><a class="code" href="classMyEKF.html">MyEKF</a>: <span class="keyword">public</span> <a class="code" href="classEKF.html">EKF</a></div>
+<p>Since Extended Kalamn is meant to work with nonlinear system, we can not extract matrix <img class="formulaInl" alt="$A$" src="form_11.png"/> and matrix <img class="formulaInl" alt="$H$" src="form_13.png"/> as we can do from a linear system. In Extended Kalman, matrix <img class="formulaInl" alt="$f$" src="form_2.png"/> and matrix <img class="formulaInl" alt="$h$" src="form_3.png"/> are matrix of functions instead of matrix of constants. To accomodate this, Class <a class="el" href="class_e_k_f.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> needs to be first derived so that we can define our own functions for those two matrices.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span><a class="code" href="class_my_e_k_f.html">MyEKF</a>: <span class="keyword">public</span> <a class="code" href="class_e_k_f.html">EKF</a></div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:  </div>
-<div class="line">  <span class="keyword">virtual</span> colvec <a class="code" href="classMyEKF.html#ad90ffc0b122e0ad98dbf6a1c074e6cb4">f</a>(<span class="keyword">const</span> colvec&amp; x, <span class="keyword">const</span> colvec&amp; u, <span class="keyword">const</span> <span class="keywordtype">int</span> k) {</div>
-<div class="line">    colvec xk(<a class="code" href="classEKF.html#a8902f8ab6a6a8d46524e2a501716d09e">nOutputs_</a>);</div>
+<div class="line">  <span class="keyword">virtual</span> colvec <a class="code" href="class_my_e_k_f.html#ad90ffc0b122e0ad98dbf6a1c074e6cb4">f</a>(<span class="keyword">const</span> colvec&amp; x, <span class="keyword">const</span> colvec&amp; u, <span class="keyword">const</span> <span class="keywordtype">int</span> k) {</div>
+<div class="line">    colvec xk(<a class="code" href="class_e_k_f.html#a8902f8ab6a6a8d46524e2a501716d09e">nOutputs_</a>);</div>
 <div class="line">    xk(0) = sin(x(1) * k);</div>
 <div class="line">    xk(1) = x(1);</div>
 <div class="line">    <span class="keywordflow">return</span> xk;</div>
 <div class="line">  }</div>
 <div class="line">  </div>
-<div class="line">  <span class="keyword">virtual</span> colvec <a class="code" href="classMyEKF.html#a2416e695e874ba0504bad5f45d2ddec1">h</a>(<span class="keyword">const</span> colvec&amp; x, <span class="keyword">const</span> colvec&amp; u, <span class="keyword">const</span> <span class="keywordtype">int</span> k) {</div>
-<div class="line">    colvec zk(<a class="code" href="classEKF.html#a8902f8ab6a6a8d46524e2a501716d09e">nOutputs_</a>);</div>
+<div class="line">  <span class="keyword">virtual</span> colvec <a class="code" href="class_my_e_k_f.html#a2416e695e874ba0504bad5f45d2ddec1">h</a>(<span class="keyword">const</span> colvec&amp; x, <span class="keyword">const</span> colvec&amp; u, <span class="keyword">const</span> <span class="keywordtype">int</span> k) {</div>
+<div class="line">    colvec zk(<a class="code" href="class_e_k_f.html#a8902f8ab6a6a8d46524e2a501716d09e">nOutputs_</a>);</div>
 <div class="line">    zk(0) = x(0);</div>
 <div class="line">    zk(1) = x(1);</div>
 <div class="line">    <span class="keywordflow">return</span> zk;</div>
@@ -206,18 +207,18 @@ Example</h2>
 <div class="line">colvec x, x_m;</div>
 <div class="line">colvec u;</div>
 <div class="line"></div>
-<div class="line"><a class="code" href="classMyEKF.html">MyEKF</a> myekf;</div>
-<div class="line">myekf.<a class="code" href="classEKF.html#a9d8af910c1a469ff5f4d5feaa9a24258">InitSystem</a>(n_states, n_outputs, Q, R);</div>
-<div class="line">myekf.<a class="code" href="classEKF.html#a4d44ac37102771fa49824b073a532670">InitSystemState</a>(x0);</div>
+<div class="line"><a class="code" href="class_my_e_k_f.html">MyEKF</a> myekf;</div>
+<div class="line">myekf.<a class="code" href="class_e_k_f.html#a9d8af910c1a469ff5f4d5feaa9a24258">InitSystem</a>(n_states, n_outputs, Q, R);</div>
+<div class="line">myekf.<a class="code" href="class_e_k_f.html#a4d44ac37102771fa49824b073a532670">InitSystemState</a>(x0);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; 1000; k ++) {</div>
-<div class="line">  myekf.<a class="code" href="classEKF.html#a99479c5947c6fc0f4303faa851751cba">EKalmanf</a>(x, x_m, u, k);</div>
+<div class="line">  myekf.<a class="code" href="class_e_k_f.html#a99479c5947c6fc0f4303faa851751cba">EKalmanf</a>(x, x_m, u, k);</div>
 <div class="line">  ...</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 2 2016 14:38:55 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 2 2016 14:54:14 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

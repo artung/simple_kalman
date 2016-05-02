@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.4.22)  2 MAY 2016 14:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.4.22)  2 MAY 2016 14:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -90,45 +90,22 @@ Type  H <return>  for immediate help.
 l.80 \[ f = \begin{bmatrix}
                             sin(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix} \]
 ? 
-
-! LaTeX Error: \begin{document} ended by \end{bmatrix}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
+! Emergency stop.
  ...                                              
                                                   
-l.80 ...n(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix}
-                                                   \]
-? 
-[26]
+l.80 \[ f = \begin{bmatrix}
+                            sin(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix} \]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
-! LaTeX Error: Environment bmatrix undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 \[ h = \begin{bmatrix}
-                            x_1(k) \\ x_2(k) \end{bmatrix} \]
-? 
-
-! LaTeX Error: \begin{document} ended by \end{bmatrix}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...in{bmatrix} x_1(k) \\ x_2(k) \end{bmatrix}
-                                                   \]
-? 
-[27] (./_formulas.aux) ) 
+ 
 Here is how much of TeX's memory you used:
- 541 strings out of 494953
- 6542 string characters out of 6179861
+ 539 strings out of 494953
+ 6642 string characters out of 6179861
  53591 words of memory out of 5000000
- 3827 multiletter control sequences out of 15000+600000
+ 3826 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  32i,4n,21p,218b,100s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on _formulas.dvi (27 pages, 3148 bytes).
+Output written on _formulas.dvi (25 pages, 2804 bytes).

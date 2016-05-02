@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ekf',['EKF',['../classEKF.html',1,'']]]
+  ['ekf',['EKF',['../class_e_k_f.html',1,'']]]
 ];
