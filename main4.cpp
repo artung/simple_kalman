@@ -69,7 +69,7 @@ int main(int argc, char** argv)
   
   for (int k = 0; k < 1000; k ++) {
     myekf.EKalmanf(x, x_m, u, k);
-    log_file << x(0) << '\t' << x(1) << '\t' << x_m(0) << '\t' << x_m(1) << '\n'; 
+    log_file << k << '\t' << x(0) << '\t' << x_m(0) << '\n'; 
   }
   
   log_file.close();
