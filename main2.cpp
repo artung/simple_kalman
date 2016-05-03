@@ -48,11 +48,11 @@ int main(int argc, char** argv)
   
     for (int i = 0; i < 30 ; i ++) {
       if (i < 10)
-	u << 1;
+    u << 1;
       else if (i >= 10 && i < 20)
-	u << -1;
+    u << -1;
       else 
-	u << 0;
+    u << 0;
       
       kalman.Kalmanf(x, x_m, u);
       log_file << i << '\t' << x(0) << '\t' << x(1) << '\t' << x_m(0) << '\t' << x_m(1) << '\t' << u(0) << '\n';
