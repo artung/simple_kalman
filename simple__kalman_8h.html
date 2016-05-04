@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -105,7 +111,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="simple__kalman_8h__dep__incl.png" border="0" usemap="#simple__kalman_8hdep" alt=""/></div>
 <map name="simple__kalman_8hdep" id="simple__kalman_8hdep">
-<area shape="rect" id="node2" href="main1_8cpp.html" title="Example for the Kalman Filter Implementation. " alt="" coords="5,80,87,107"/><area shape="rect" id="node3" href="main2_8cpp.html" title="Example for the Kalman Filter Implementation. " alt="" coords="112,80,193,107"/><area shape="rect" id="node4" href="main3_8cpp.html" title="Example for the Kalman Filter Implementation. " alt="" coords="219,80,300,107"/></map>
+<area shape="rect" id="node2" href="main1_8cpp.html" title="Example for the Kalman Filter Implementation. " alt="" coords="5,80,87,107"/><area shape="rect" id="node3" href="main2_8cpp.html" title="Example for the Kalman Filter Implementation. " alt="" coords="112,80,193,107"/><area shape="rect" id="node4" href="main3_8cpp.html" title="Example for the Kalman Filter Implementation. " alt="" coords="219,80,300,107"/><area shape="rect" id="node5" href="simple__kalman_8cpp.html" title="simple_kalman.cpp" alt="" coords="326,80,460,107"/></map>
 </div>
 </div>
 <p><a href="simple__kalman_8h_source.html">Go to the source code of this file.</a></p>
@@ -123,25 +129,25 @@ Classes</h2></td></tr>
 <h1><a class="anchor" id="DESCRIPTION"></a>
 DESCRIPTION</h1>
 <p>Define a system: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[x_k = Ax_{k-1} + Bu_{k-1} + v_{k-1}\]" src="form_9.png"/>
+\[x_k = Ax_{k-1} + Bu_{k-1} + v_{k-1}\]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[z_k = Hx_k + w_k\]" src="form_10.png"/>
+\[z_k = Hx_k + w_k\]
 </p>
 <p> where:<br />
- <img class="formulaInl" alt="$v$" src="form_4.png"/> is the process noise (Gaussian with covariance Q)<br />
- <img class="formulaInl" alt="$w$" src="form_5.png"/> is the measurement noise (Gaussian with covariance R)<br />
- <img class="formulaInl" alt="$A$" src="form_11.png"/> is the system matrix<br />
- <img class="formulaInl" alt="$B$" src="form_12.png"/> is the input matrix<br />
- <img class="formulaInl" alt="$H$" src="form_13.png"/> is the output matrix<br />
- <img class="formulaInl" alt="$x$" src="form_6.png"/> is the state vector<br />
- <img class="formulaInl" alt="$z$" src="form_7.png"/> is the output vector<br />
- <img class="formulaInl" alt="$u$" src="form_8.png"/> is the input vector<br />
+ \(v\) is the process noise (Gaussian with covariance Q)<br />
+ \(w\) is the measurement noise (Gaussian with covariance R)<br />
+ \(A\) is the system matrix<br />
+ \(B\) is the input matrix<br />
+ \(H\) is the output matrix<br />
+ \(x\) is the state vector<br />
+ \(z\) is the output vector<br />
+ \(u\) is the input vector<br />
 </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 2 2016 14:54:08 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 4 2016 10:42:36 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

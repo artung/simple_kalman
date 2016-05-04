@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>simple_kalman: ekf.h File Reference</title>
+<title>simple_kalman: README.md File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,63 +87,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">ekf.h File Reference</div>  </div>
+<div class="title">README.md File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Header file for the Extended Kalman filter implementation.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;armadillo&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for ekf.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="ekf_8h__incl.png" border="0" usemap="#ekf_8h" alt=""/></div>
-<map name="ekf_8h" id="ekf_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="ekf_8h__dep__incl.png" border="0" usemap="#ekf_8hdep" alt=""/></div>
-<map name="ekf_8hdep" id="ekf_8hdep">
-<area shape="rect" id="node2" href="ekf_8cpp.html" title="ekf.cpp" alt="" coords="5,80,69,107"/><area shape="rect" id="node3" href="main4_8cpp.html" title="Example for the Extended Kalman FIlter Implementation. " alt="" coords="95,80,176,107"/></map>
-</div>
-</div>
-<p><a href="ekf_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_k_f.html">EKF</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implemetation of the extended Kalman filter. This class needs to be derived.  <a href="class_e_k_f.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the Extended Kalman filter implementation. </p>
-<dl class="section author"><dt>Author</dt><dd>Auralius Manurung </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>18 Apr 2015 </dd></dl>
-<h1><a class="anchor" id="DESCRIPTION"></a>
-DESCRIPTION</h1>
-<p>Define a non-linear discrete-time process: </p><p class="formulaDsp">
-\[x_k = f(x_{k-1}, u_{k-1}, k) + v_{k-1}\]
-</p>
- <p class="formulaDsp">
-\[z_k = h(x_k, u_k, k) + w_k\]
-</p>
-<p> where:<br />
- \(f\) is the dynamic model of the system<br />
- \(h\) is the measurement model of the system<br />
- \(v\) is the process noise (Gaussian with covariance Q)<br />
- \(w\) is the measurement noise (Gaussian with covariance R)<br />
- \(x\) is the state vector<br />
- \(z\) is the output vector<br />
- \(u\) is the input vector<br />
-</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed May 4 2016 10:42:36 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">

@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -81,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h2>Kalman filter implementation in C++</h2>
 <p>This work is motivated by Lecture #7 of the <a href="http://www.idsc.ethz.ch/education/lectures/recursive-estimation.html">this</a> course.</p>
-<p>The Kalman filter implementation is located in: <a class="el" href="simple__kalman_8h.html" title="Header file for the Kalman filter implementation. ">simple_kalman.h</a> and simple_kalman.cpp while the extended Kalman filter implementation is located in <a class="el" href="ekf_8h.html" title="Header file for the Extended Kalman filter implementation. ">ekf.h</a> and ekf.cpp.</p>
+<p>The Kalman filter implementation is located in: <a class="el" href="simple__kalman_8h.html" title="Header file for the Kalman filter implementation. ">simple_kalman.h</a> and <a class="el" href="simple__kalman_8cpp.html">simple_kalman.cpp</a> while the extended Kalman filter implementation is located in <a class="el" href="ekf_8h.html" title="Header file for the Extended Kalman filter implementation. ">ekf.h</a> and <a class="el" href="ekf_8cpp.html">ekf.cpp</a>.</p>
 <p>Please use cmake to build the codes by first modifying the main file name in CMakeList.txt.</p>
 <p>The steps to compile are:</p>
 <p>``` cd build cmake .. make ```</p>
@@ -90,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 2 2016 14:54:08 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 4 2016 10:42:36 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

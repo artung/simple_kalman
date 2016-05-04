@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -84,38 +90,38 @@ Kalman for linear system</h1>
 <h2><a class="anchor" id="definition"></a>
 Definition</h2>
 <p>A linear system, described by: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[x_k = Ax_{k-1} + Bu_{k-1} + v_{k-1}\]" src="form_9.png"/>
+\[x_k = Ax_{k-1} + Bu_{k-1} + v_{k-1}\]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[z_k = Hx_k + w_k\]" src="form_10.png"/>
+\[z_k = Hx_k + w_k\]
 </p>
 <p> where:<br />
- <img class="formulaInl" alt="$v$" src="form_4.png"/> is the process noise (Gaussian with covariance Q)<br />
- <img class="formulaInl" alt="$w$" src="form_5.png"/> is the measurement noise (Gaussian with covariance R)<br />
- <img class="formulaInl" alt="$A$" src="form_11.png"/> is the system matrix<br />
- <img class="formulaInl" alt="$B$" src="form_12.png"/> is the input matrix<br />
- <img class="formulaInl" alt="$H$" src="form_13.png"/> is the output matrix<br />
- <img class="formulaInl" alt="$x$" src="form_6.png"/> is the state vector<br />
- <img class="formulaInl" alt="$z$" src="form_7.png"/> is the output vector<br />
- <img class="formulaInl" alt="$u$" src="form_8.png"/> is the input vector<br />
+ \(v\) is the process noise (Gaussian with covariance Q)<br />
+ \(w\) is the measurement noise (Gaussian with covariance R)<br />
+ \(A\) is the system matrix<br />
+ \(B\) is the input matrix<br />
+ \(H\) is the output matrix<br />
+ \(x\) is the state vector<br />
+ \(z\) is the output vector<br />
+ \(u\) is the input vector<br />
 <br />
 The noise covariance matrices must follow these conditions:<br />
  </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[Q = Q^T\]" src="form_14.png"/>
+\[Q = Q^T\]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[R = R^T\]" src="form_15.png"/>
+\[R = R^T\]
 </p>
 <h2><a class="anchor" id="example"></a>
 Example</h2>
 <p>As provided in <a class="el" href="main1_8cpp.html" title="Example for the Kalman Filter Implementation. ">main1.cpp</a>, we will solve <a href="http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html">the car voltmeter</a> using this library. The system model is given as:</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[x_k = x_{k-1} + 12 + v_{k-1}\]" src="form_16.png"/>
+\[x_k = x_{k-1} + 12 + v_{k-1}\]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[z_k = x_k + w_ḳ\]" src="form_17.png"/>
+\[z_k = x_k + w_ḳ\]
 </p>
-<p>Therefore, we can then write: <img class="formulaInl" alt="$A = 0$" src="form_18.png"/>, <img class="formulaInl" alt="$B = 0$" src="form_19.png"/>, <img class="formulaInl" alt="$H = 1$" src="form_20.png"/> and <img class="formulaInl" alt="$u = 12$" src="form_21.png"/>. Both noise covariances ( <img class="formulaInl" alt="$Q$" src="form_22.png"/> and <img class="formulaInl" alt="$R$" src="form_23.png"/>) are 2.</p>
+<p>Therefore, we can then write: \(A = 0\), \(B = 0\), \(H = 1\) and \(u = 12\). Both noise covariances ( \(Q\) and \(R\)) are 2.</p>
 <div class="fragment"><div class="line">mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);   </div>
 <div class="line">A(0, 0) = 0;</div>
 <div class="line">B(0, 0) = 1;</div>
@@ -125,7 +131,7 @@ Example</h2>
 </div><!-- fragment --><p>The first line of the code above is used to create matrices with predefined dimensions. For this purpose, Armadillo library is used. In the following row until the last row, we assign the value of each matrix accordingly.</p>
 <div class="fragment"><div class="line"><a class="code" href="class_simple_kalman.html">SimpleKalman</a> kalman;</div>
 <div class="line">kalman.<a class="code" href="class_simple_kalman.html#a64801e2d906e09bfefa29de307d9132b">InitSystem</a>(A, B, H, Q, R);</div>
-</div><!-- fragment --><p>Next, we create an instance of class <a class="el" href="class_simple_kalman.html" title="Implemetation of the Kalman filter. ">SimpleKalman</a> and initialize it with the previous matrices of <img class="formulaInl" alt="$A$" src="form_11.png"/>, <img class="formulaInl" alt="$B$" src="form_12.png"/>, <img class="formulaInl" alt="$Q$" src="form_22.png"/>, <img class="formulaInl" alt="$H$" src="form_13.png"/>, and <img class="formulaInl" alt="$R$" src="form_23.png"/>.</p>
+</div><!-- fragment --><p>Next, we create an instance of class <a class="el" href="class_simple_kalman.html" title="Implemetation of the Kalman filter. ">SimpleKalman</a> and initialize it with the previous matrices of \(A\), \(B\), \(Q\), \(H\), and \(R\).</p>
 <div class="fragment"><div class="line">colvec x(1), x_m(1);</div>
 <div class="line">colvec u(1);</div>
 <div class="line">  </div>
@@ -134,43 +140,43 @@ Example</h2>
 <div class="line">  kalman.<a class="code" href="class_simple_kalman.html#ac232ddbe7c6529b1fcf6d9e620b63c86">Kalmanf</a>(x, x_m, u);</div>
 <div class="line">  ...</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Before executing the Kalman iteration, we need to prepare 2 variables, which are: <img class="formulaInl" alt="$x$" src="form_6.png"/> and <img class="formulaInl" alt="$x_m$" src="form_24.png"/>. <img class="formulaInl" alt="$x$" src="form_6.png"/> will be used to store the true states and <img class="formulaInl" alt="$x_m$" src="form_24.png"/> will be used to store the estimated states by the Kalman.</p>
+</div><!-- fragment --><p>Before executing the Kalman iteration, we need to prepare 2 variables, which are: \(x\) and \(x_m\). \(x\) will be used to store the true states and \(x_m\) will be used to store the estimated states by the Kalman.</p>
 <h1><a class="anchor" id="non-linear-kalman"></a>
 Extended Kalman for nonlinear system</h1>
 <h2><a class="anchor" id="definition"></a>
 Definition</h2>
 <p>A non-linear system is described by: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[x_k = f(x_{k-1}, u_{k-1}, k) + v_{k-1}\]" src="form_0.png"/>
+\[x_k = f(x_{k-1}, u_{k-1}, k) + v_{k-1}\]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[z_k = h(x_k, u_k, k) + w_k\]" src="form_1.png"/>
+\[z_k = h(x_k, u_k, k) + w_k\]
 </p>
 <p> where:<br />
- <img class="formulaInl" alt="$f$" src="form_2.png"/> is the dynamic model of the system<br />
- <img class="formulaInl" alt="$h$" src="form_3.png"/> is the measurement model of the system<br />
- <img class="formulaInl" alt="$v$" src="form_4.png"/> is the process noise (Gaussian with covariance Q)<br />
- <img class="formulaInl" alt="$w$" src="form_5.png"/> is the measurement noise (Gaussian with covariance R)<br />
- <img class="formulaInl" alt="$x$" src="form_6.png"/> is the state vector<br />
- <img class="formulaInl" alt="$z$" src="form_7.png"/> is the output vector<br />
- <img class="formulaInl" alt="$u$" src="form_8.png"/> is the input vector<br />
+ \(f\) is the dynamic model of the system<br />
+ \(h\) is the measurement model of the system<br />
+ \(v\) is the process noise (Gaussian with covariance Q)<br />
+ \(w\) is the measurement noise (Gaussian with covariance R)<br />
+ \(x\) is the state vector<br />
+ \(z\) is the output vector<br />
+ \(u\) is the input vector<br />
 <br />
 The noise covariance matrices must follow these conditions:<br />
  </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[Q = Q^T\]" src="form_14.png"/>
+\[Q = Q^T\]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[R = R^T\]" src="form_15.png"/>
+\[R = R^T\]
 </p>
 <h2><a class="anchor" id="example"></a>
 Example</h2>
 <p>As provided in <a class="el" href="main4_8cpp.html" title="Example for the Extended Kalman FIlter Implementation. ">main4.cpp</a>, the example for the <a class="el" href="class_e_k_f.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> is adapted from this <a href="http://www.mathworks.com/matlabcentral/fileexchange/18465-learning-the-kalman-filter-in-simulink-v2-1/content/html/runkalmanfilter.html">MATLAB Central page.</a> The nonlinear system is described as:</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ f = \begin{bmatrix} sin(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix} \]" src="form_25.png"/>
+\[ f = \begin{bmatrix} sin(x_2(k-1))(k-1) \\ x_2(k-1) \end{bmatrix} \]
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ h = \begin{bmatrix} x_1(k) \\ x_2(k) \end{bmatrix} \]" src="form_26.png"/>
+\[ h = \begin{bmatrix} x_1(k) \\ x_2(k) \end{bmatrix} \]
 </p>
-<p>Since Extended Kalamn is meant to work with nonlinear system, we can not extract matrix <img class="formulaInl" alt="$A$" src="form_11.png"/> and matrix <img class="formulaInl" alt="$H$" src="form_13.png"/> as we can do from a linear system. In Extended Kalman, matrix <img class="formulaInl" alt="$f$" src="form_2.png"/> and matrix <img class="formulaInl" alt="$h$" src="form_3.png"/> are matrix of functions instead of matrix of constants. To accomodate this, Class <a class="el" href="class_e_k_f.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> needs to be first derived so that we can define our own functions for those two matrices.</p>
+<p>Since Extended Kalamn is meant to work with nonlinear system, we can not extract matrix \(A\) and matrix \(H\) as we can do from a linear system. In Extended Kalman, matrix \(f\) and matrix \(h\) are matrix of functions instead of matrix of constants. To accomodate this, Class <a class="el" href="class_e_k_f.html" title="Implemetation of the extended Kalman filter. This class needs to be derived. ">EKF</a> needs to be first derived so that we can define our own functions for those two matrices.</p>
 <div class="fragment"><div class="line"><span class="keyword">class </span><a class="code" href="class_my_e_k_f.html">MyEKF</a>: <span class="keyword">public</span> <a class="code" href="class_e_k_f.html">EKF</a></div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:  </div>
@@ -218,7 +224,7 @@ Example</h2>
 </div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 2 2016 14:54:14 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 4 2016 10:42:36 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

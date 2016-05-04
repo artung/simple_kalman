@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>My Project: Member List</title>
+<title>simple_kalman: simple_kalman.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,8 +28,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">simple_kalman
    </div>
+   <div id="projectbrief">Implementation of Kalman Filter and extended Kalman filter in C++</div>
   </td>
  </tr>
  </tbody>
@@ -38,8 +45,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -60,10 +67,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -83,27 +88,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">EKF Member List</div>  </div>
+<div class="title">simple_kalman.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="classEKF.html">EKF</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classEKF.html#a99479c5947c6fc0f4303faa851751cba">EKalmanf</a>(colvec &amp;x, colvec &amp;x_m, const colvec &amp;u, const int k)</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classEKF.html#ab48b75de3b276773f474e347ebc5b2a0">EKF</a>()</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEKF.html#aa52d1de79e221c5ea2febdb7de0bf82a">f</a>(const colvec &amp;x, const colvec &amp;u, const int k)</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classEKF.html#ab8058b1f4e42f075a99d8d1e8bc59441">h</a>(const colvec &amp;x, const colvec &amp;u, const int k)</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEKF.html#a9d8af910c1a469ff5f4d5feaa9a24258">InitSystem</a>(int n_states, int n_outputs, const mat &amp;Q, const mat &amp;R)</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classEKF.html#a4d44ac37102771fa49824b073a532670">InitSystemState</a>(const colvec &amp;x0)</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEKF.html#a8902f8ab6a6a8d46524e2a501716d09e">nOutputs_</a></td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classEKF.html#ae27fd423477a96fd15665ae15a5e55e5">nStates_</a></td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEKF.html#a262cd1dead985261fa576cf4ca7721ff">x_</a></td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classEKF.html#a4faca49ecd115b274373579090514fcc">z_</a></td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEKF.html#abebda258b361ad3ceb05a70ae453baec">~EKF</a>()</td><td class="entry"><a class="el" href="classEKF.html">EKF</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="textblock"><code>#include &quot;<a class="el" href="simple__kalman_8h_source.html">simple_kalman.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for simple_kalman.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="simple__kalman_8cpp__incl.png" border="0" usemap="#simple__kalman_8cpp" alt=""/></div>
+<map name="simple__kalman_8cpp" id="simple__kalman_8cpp">
+<area shape="rect" id="node2" href="simple__kalman_8h.html" title="Header file for the Kalman filter implementation. " alt="" coords="75,80,195,107"/></map>
+</div>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 2 2016 14:38:35 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 4 2016 10:42:36 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

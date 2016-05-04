@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>My Project: simple_kalman</title>
+<title>simple_kalman: mainpage.dox File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,8 +28,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">simple_kalman
    </div>
+   <div id="projectbrief">Implementation of Kalman Filter and extended Kalman filter in C++</div>
   </td>
  </tr>
  </tbody>
@@ -37,9 +44,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -56,6 +63,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -75,21 +88,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">simple_kalman </div>  </div>
+<div class="title">mainpage.dox File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>Kalman filter implementation in C++</h2>
-<p>This work is motivated by Lecture #7 of the <a href="http://www.idsc.ethz.ch/education/lectures/recursive-estimation.html">this</a> course.</p>
-<p>The Kalman filter implementation is located in: <a class="el" href="simple__kalman_8h.html" title="Header file for the Kalman filter implementation. ">simple_kalman.h</a> and simple_kalman.cpp while the extended Kalman filter implementation is located in <a class="el" href="ekf_8h.html" title="Header file for the Extended Kalman filter implementation. ">ekf.h</a> and ekf.cpp.</p>
-<p>Please use cmake to build the codes by first modifying the main file name in CMakeList.txt.</p>
-<p>The steps to compile are:</p>
-<p>``` cd build cmake .. make ```</p>
-<h2>Dependencies</h2>
-<p>Please install <a href="http://arma.sourceforge.net">Armadillo</a>, take it from your distribution repository. Armadillo is very easy to use. Have a look on this <a href="http://arma.sourceforge.net/docs.html">link</a> for quick tutorial on using Armadillo. </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 2 2016 14:38:35 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 4 2016 10:42:36 for simple_kalman by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

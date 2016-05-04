@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eekf',['~EKF',['../class_e_k_f.html#abebda258b361ad3ceb05a70ae453baec',1,'EKF']]]
+  ['simplekalman',['SimpleKalman',['../class_simple_kalman.html#a7e1388e2adbab9df9dd205bee89aaaa3',1,'SimpleKalman']]]
 ];
